@@ -128,316 +128,196 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-/* ベースフォント */
-html, body, [class*="css"], [data-testid] {
-    font-family: 'DM Sans', system-ui, sans-serif !important;
-    -webkit-font-smoothing: antialiased;
+html, body, [class*="css"] {
+    font-size: 16px;
 }
 
-/* ページ背景 */
 .stApp {
-    background-color: #f8fafc !important;
+    background: #ffffff;
 }
 
-/* コンテナ幅・余白 */
+/* タイトルが上部で切れないための余白 */
 .block-container {
-    max-width: 1400px !important;
-    padding: 0 !important;
+    max-width: 1460px !important;
+    padding: 2.1rem 1.5rem 3.5rem !important;
+    overflow: visible !important;
 }
 
-/* ヘッダーエリア（タイトル部分）*/
 h1 {
-    font-size: 1.35rem !important;
+    color: #172554 !important;
+    font-size: 1.9rem !important;
     font-weight: 800 !important;
-    color: #0f172a !important;
-    letter-spacing: -0.02em !important;
-    line-height: 1.3 !important;
-    margin: 0 !important;
-    padding: 1rem 1.5rem !important;
-    background: #ffffff !important;
-    border-bottom: 1px solid #e2e8f0 !important;
+    line-height: 1.4 !important;
+    margin: 0 0 .35rem 0 !important;
+    padding: .15rem 0 !important;
+    overflow: visible !important;
 }
 
-/* セクション見出し */
 h3 {
-    font-size: 0.7rem !important;
-    font-weight: 700 !important;
-    color: #64748b !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-    margin: 0 0 0.5rem 0 !important;
+    color: #172554 !important;
+    font-size: 1.22rem !important;
+    font-weight: 800 !important;
+    margin: .2rem 0 .35rem !important;
     padding: 0 !important;
 }
 
 h4 {
-    font-size: 0.72rem !important;
-    font-weight: 700 !important;
-    color: #64748b !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-    margin: 0.75rem 0 0.4rem 0 !important;
+    color: #172554 !important;
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    margin: .55rem 0 .35rem !important;
     padding: 0 !important;
 }
 
-/* ラベル */
 label, [data-testid="stWidgetLabel"] p {
-    font-size: 0.72rem !important;
-    font-weight: 600 !important;
-    color: #64748b !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
+    color: #334155 !important;
+    font-size: .94rem !important;
+    font-weight: 700 !important;
 }
 
-/* 入力フィールド共通 */
 div[data-testid="stTextInput"],
 div[data-testid="stNumberInput"],
 div[data-testid="stSelectbox"],
 div[data-testid="stDateInput"] {
-    margin-bottom: 0.25rem !important;
+    margin-bottom: .15rem !important;
 }
 
 [data-baseweb="input"],
 [data-baseweb="select"] > div {
+    min-height: 2.25rem !important;
     border-radius: 6px !important;
-    border-color: #e2e8f0 !important;
-    background: #ffffff !important;
-    font-size: 0.875rem !important;
-    min-height: 36px !important;
 }
 
-[data-baseweb="input"]:focus-within,
-[data-baseweb="select"] > div:focus-within {
-    border-color: #2563eb !important;
-    box-shadow: 0 0 0 2px rgba(37,99,235,0.15) !important;
-}
-
-input[type="text"],
-input[type="number"] {
-    font-family: 'DM Sans', sans-serif !important;
-}
-
-/* 数値入力はモノスペース */
-input[type="number"] {
-    font-family: 'JetBrains Mono', monospace !important;
-}
-
-/* ボタン共通 */
 .stButton > button {
-    height: 36px !important;
+    min-height: 2rem !important;
     border-radius: 6px !important;
-    font-size: 0.85rem !important;
-    font-weight: 600 !important;
-    font-family: 'DM Sans', sans-serif !important;
-    padding: 0 1rem !important;
-    border: 1px solid #e2e8f0 !important;
-    background: #f1f5f9 !important;
-    color: #334155 !important;
-    transition: background 0.15s !important;
+    font-size: .88rem !important;
+    font-weight: 700 !important;
     line-height: 1 !important;
+    padding: .15rem .55rem !important;
 }
 
-.stButton > button:hover {
-    background: #e2e8f0 !important;
-}
-
-/* primaryボタン（経路検索）*/
-.stButton > button[kind="primary"] {
-    background: #2563eb !important;
-    color: #ffffff !important;
-    border-color: #2563eb !important;
-}
-
-.stButton > button[kind="primary"]:hover {
-    background: #1d4ed8 !important;
-    border-color: #1d4ed8 !important;
-}
-
-/* タブ */
 [data-testid="stTabs"] {
-    background: #ffffff !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    padding: 0 1.5rem !important;
-    margin-bottom: 0 !important;
+    margin-bottom: .25rem !important;
 }
 
-[data-testid="stTabs"] button {
-    font-size: 0.875rem !important;
-    font-weight: 500 !important;
-    color: #64748b !important;
-    border-radius: 0 !important;
-    padding: 0.6rem 1rem !important;
+[data-testid="stTabs"] button p {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
 }
 
-[data-testid="stTabs"] button[aria-selected="true"] {
-    color: #0f172a !important;
-    font-weight: 600 !important;
-    border-bottom: 2px solid #2563eb !important;
+.toolbar-count-label {
+    color: #334155;
+    font-size: .92rem;
+    font-weight: 800;
+    line-height: 2rem;
+    white-space: nowrap;
 }
 
-/* メインコンテンツ余白 */
-[data-testid="stVerticalBlock"] > [data-testid="stVerticalBlockBorderWrapper"],
-[data-testid="stVerticalBlock"] {
-    gap: 0.5rem !important;
+.toolbar-note {
+    color: #64748b;
+    font-size: .82rem;
+    line-height: 1.3;
 }
 
-section[data-testid="stSidebar"] + div .block-container {
-    padding: 1.25rem 1.5rem 3rem !important;
+.panel-title {
+    color: #172554;
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin: 0 0 .25rem;
+    padding: 0;
 }
 
-.block-container > div {
-    padding: 1.25rem 1.5rem 3rem !important;
+.input-panel,
+.result-panel {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
 }
 
-/* アラート・メッセージ */
-div[data-testid="stAlert"] {
-    padding: 0.35rem 0.65rem !important;
-    margin: 0.1rem 0 !important;
-    border-radius: 6px !important;
-    font-size: 0.82rem !important;
-}
-
-div[data-testid="stAlert"] p {
-    font-size: 0.82rem !important;
-    line-height: 1.4 !important;
-    margin: 0 !important;
-}
-
-/* 成功 */
-div[data-testid="stAlert"][data-baseweb="notification"][kind="success"] {
-    background: #f0fdf4 !important;
-    border: 1px solid #86efac !important;
-    color: #166534 !important;
-}
-
-/* エラー */
-div[data-testid="stAlert"][data-baseweb="notification"][kind="error"] {
-    background: #fef2f2 !important;
-    border: 1px solid #fca5a5 !important;
-    color: #991b1b !important;
-}
-
-/* 警告 */
-div[data-testid="stAlert"][data-baseweb="notification"][kind="warning"] {
-    background: #fffbeb !important;
-    border: 1px solid #fcd34d !important;
-    color: #92400e !important;
-}
-
-/* インフォ */
-div[data-testid="stAlert"][data-baseweb="notification"][kind="info"] {
-    background: #eff6ff !important;
-    border: 1px solid #93c5fd !important;
-    color: #1e40af !important;
-}
-
-/* キャプション */
-div[data-testid="stCaptionContainer"] p,
-.stCaption {
-    font-size: 0.78rem !important;
-    color: #94a3b8 !important;
-}
-
-/* result-box（払い戻し結果）*/
 .result-box {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-top: 0.25rem;
+    background: #f8fbff;
+    border: 1px solid #dbeafe;
+    border-radius: 7px;
+    margin-top: .25rem;
+    padding: .55rem .7rem .1rem;
 }
 
 .result-route {
-    background: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 0.6rem 0.85rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #1e293b;
+    color: #1e3a8a;
+    font-size: .93rem;
+    font-weight: 700;
     line-height: 1.5;
+    margin-bottom: .2rem;
     word-break: break-word;
 }
 
 .result-price-row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.3rem 0.85rem;
-    border-bottom: 1px solid #f1f5f9;
-    font-size: 0.82rem;
-}
-
-.result-price-row span:first-child {
-    color: #64748b;
+    gap: .7rem;
+    padding: .16rem 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: .9rem;
 }
 
 .result-price-row span:last-child {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 500;
-    color: #334155;
+    font-weight: 700;
     white-space: nowrap;
 }
 
-/* メトリクス（最終払い戻し額）*/
 div[data-testid="stMetric"] {
-    background: #f0fdf4 !important;
-    border: 1px solid #86efac !important;
-    border-radius: 0 0 8px 8px !important;
-    padding: 0.55rem 0.85rem !important;
-    margin: 0 !important;
+    background: #ecfdf5;
+    border: 1px solid #86efac;
+    border-radius: 7px;
+    margin-top: .35rem;
+    padding: .4rem .6rem;
 }
 
-div[data-testid="stMetricLabel"] p {
-    font-size: 0.8rem !important;
-    font-weight: 600 !important;
-    color: #166534 !important;
-    text-transform: none !important;
-    letter-spacing: normal !important;
+div[data-testid="stMetricLabel"] {
+    font-size: .9rem !important;
 }
 
 div[data-testid="stMetricValue"] {
-    font-family: 'JetBrains Mono', monospace !important;
-    font-size: 1.5rem !important;
-    font-weight: 700 !important;
-    color: #15803d !important;
+    color: #166534 !important;
+    font-size: 1.55rem !important;
+    font-weight: 800 !important;
 }
 
-/* セパレータ */
+div[data-testid="stAlert"] {
+    min-height: auto !important;
+    margin: .08rem 0 !important;
+    padding: .3rem .55rem !important;
+}
+
+div[data-testid="stAlert"] p {
+    font-size: .9rem !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+}
+
 hr {
-    border-color: #e2e8f0 !important;
-    margin: 0.75rem 0 !important;
+    margin: .55rem 0 !important;
 }
 
-/* スクロールバー非表示 */
-::-webkit-scrollbar { width: 0; height: 0; }
-
-/* ツールバー件数ラベル */
-.toolbar-count-label {
-    color: #475569;
-    font-size: 0.85rem;
-    font-weight: 600;
-    line-height: 36px;
-    white-space: nowrap;
-}
-
-/* パネルタイトル */
-.panel-title {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin: 0 0 0.4rem 0;
+/* スクロールバーを消す指定は使わない */
+::-webkit-scrollbar {
+    width: auto;
+    height: auto;
 }
 
 @media (max-width: 800px) {
-    h1 { font-size: 1.1rem !important; padding: 0.8rem 1rem !important; }
-    .block-container > div { padding: 1rem !important; }
+    .block-container {
+        padding: 1.7rem 1rem 3rem !important;
+    }
+
+    h1 {
+        font-size: 1.55rem !important;
+    }
 }
-</style>""", unsafe_allow_html=True)
+</style>
+
 
 st.title("🚃 定期券払い戻し計算ツール")
 
@@ -454,59 +334,54 @@ with tab1:
     if "num_rows" not in st.session_state:
         st.session_state["num_rows"] = 1
 
-    # 件数操作を左に集約し、検索・計算ボタンは必要な幅だけにする
-    count_area, search_area, calc_area, note_area = st.columns(
-        [2.15, 1.15, 1.45, 2.25],
+        count_label_col, add_col, remove_col, search_col, calc_col, note_col = st.columns(
+        [1.45, 0.34, 0.34, 1.15, 1.35, 2.2],
         gap="small",
         vertical_alignment="center",
     )
 
-    with count_area:
-        count_label, add_button, remove_button = st.columns(
-            [4.6, 0.55, 0.55],
-            gap="small",
-            vertical_alignment="center",
+    with count_label_col:
+        st.markdown(
+            "<div class='toolbar-count-label'>払戻し件数を追加</div>",
+            unsafe_allow_html=True,
         )
 
-        with count_label:
-            st.markdown(
-                "<div class='toolbar-count-label'>払戻し件数を追加</div>",
-                unsafe_allow_html=True,
-            )
+    with add_col:
+        if st.button("＋", key="btn_add_row", use_container_width=True):
+            if st.session_state["num_rows"] < 10:
+                st.session_state["num_rows"] += 1
+                st.rerun()
 
-        with add_button:
-            if st.button("＋", key="btn_add_row"):
-                if st.session_state["num_rows"] < 10:
-                    st.session_state["num_rows"] += 1
-                    st.rerun()
+    with remove_col:
+        if st.button("－", key="btn_remove_row", use_container_width=True):
+            if st.session_state["num_rows"] > 1:
+                removed = st.session_state["num_rows"] - 1
+                reset_station_candidates(removed)
+                st.session_state.pop(f"candidates_{removed}", None)
+                st.session_state["num_rows"] -= 1
+                st.rerun()
 
-        with remove_button:
-            if st.button("－", key="btn_remove_row"):
-                if st.session_state["num_rows"] > 1:
-                    removed = st.session_state["num_rows"] - 1
-                    reset_station_candidates(removed)
-                    st.session_state.pop(f"candidates_{removed}", None)
-                    st.session_state["num_rows"] -= 1
-                    st.rerun()
-
-    with search_area:
+    with search_col:
         do_search = st.button(
             "🔍 経路を検索",
             key="btn_search_routes",
             type="primary",
+            use_container_width=True,
         )
 
-    with calc_area:
+    with calc_col:
         do_calc = st.button(
             "💰 選択経路で計算",
             key="btn_calc_selected",
+            use_container_width=True,
         )
 
-    with note_area:
+    with note_col:
         st.markdown(
-            "<div class='toolbar-note'>駅名入力後に Enter または入力欄の外をクリックすると、候補駅が表示されます。</div>",
+            "<div class='toolbar-note'>駅名入力後、Enter または入力欄の外をクリックすると候補駅を検索します。</div>",
             unsafe_allow_html=True,
         )
+
 
 
     # 検索結果メッセージは入力欄より上に表示
@@ -517,7 +392,7 @@ with tab1:
             else:
                 st.error(message)
 
-    num_rows = st.session_state["num_rows"]
+  
 
     num_rows = st.session_state["num_rows"]
     entries = []
