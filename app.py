@@ -317,7 +317,7 @@ hr {
     }
 }
 </style>
-
+""", unsafe_allow_html=True)
 
 st.title("🚃 定期券払い戻し計算ツール")
 
