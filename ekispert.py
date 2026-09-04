@@ -16,7 +16,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv("EKISPERT_API_KEY")
+try:
+    import streamlit as st
+    STREAMLIT_API_KEY = st.secrets.get("EKISPERT_API_KEY", "")
+except Exception:
+    STREAMLIT_API_KEY = ""
+
+API_KEY = os.getenv("EKISPERT_API_KEY") or STREAMLIT_API_KEY
 BASE_URL = "https://api.ekispert.jp/v1/json"
 
 
